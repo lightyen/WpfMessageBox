@@ -1,22 +1,16 @@
-# 
-
-首先要確認的是要引用的 dll 是 managed 或是 unmanaged。
+## 首先要確認的是要引用的 dll 是 managed 或是 unmanaged。
 
 - managed
 
-  指的是給CLR托管 有記憶體垃圾回收C#,VB,C++/CLI 屬於這類。
+  > 指的是給CLR托管 有記憶體垃圾回收C#,VB,C++/CLI 屬於這類。
 
 - unmanaged
 
-  非托管的代碼則是要自己得要處理記憶體問題，
+  > 非托管的代碼則是要自己得要處理記憶體問題，
+  > 傳統的windows api或者COM介面或者是其他人寫的native C++都是這種形式的。
+  > (稱native只是為了和C++/CLI有所區隔，可以想成是又快又猛又易翻車的C++)
 
-  傳統的windows api或者COM介面或者是其他人寫的native C++都是這種形式的。
-
-  (稱native只是為了和C++/CLI有所區隔，可以想成是又快又猛又易翻車的C++)
-
-看你要的需求，大概是使用C#來呼叫unmanaged相去不遠了。
-
-
+依你要的需求，大概是使用C#來呼叫unmanaged相去不遠了。
 
 這種用C#和原生C++摻在一塊做牛丸的混合編程，
 
@@ -28,7 +22,7 @@
 
 
 
-在此我先弄一個範例：
+## 在此我先弄一個範例：
 
 https://github.com/lightyen/WpfMessageBox
 
@@ -52,7 +46,7 @@ https://github.com/lightyen/WpfMessageBox
 
 
 
-好了，現在我們可以來實作牛丸了。
+## 好了，現在我們可以來實作牛丸了
 
 首先新增一個*.cs 然宣告一個static class來當我們的介面參考，
 
@@ -93,23 +87,17 @@ LPCTSTR -> LP-C-T-STR ->一個tchar的唯讀字串，在這裡用一個string代
 AllocHGlobal,FreeHGlobal,SizeOf
 
 
+## 最後設計的部分
 
-最後設計的部分：許多c++的函式都用一個整數代表功能的體現，
-
+許多c++的函式都用一個整數代表功能的體現，
 在C#中我們可以來為這些功能(flag)寫成一個enum，加些註解，
-
 或者把一些資料包裝成一個class，再加上一些而外的功能，
-
 能使得在使用unmanaged code能更加舒服一些。
 
-
-
-更多的範例：
-
+## 更多的範例
 https://github.com/lightyen/COMInterop
 
-更多的關鍵字：
-
+## 更多的關鍵字
 Interop, DllImport, Marshal, IntPtr, UnmanagedType, StructLayout
 
 
