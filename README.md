@@ -10,11 +10,11 @@
   > 傳統的windows api或者COM介面或者是其他人寫的native C++都是這種形式的。
   > (稱native只是為了和C++/CLI有所區隔，可以想成是又快又猛又易翻車的C++)
 
-依你要的需求，大概是使用C#來呼叫unmanaged相去不遠了。
+依你要的需求，大概是使用C#來呼叫unmanaged code相去不遠了。
 
 這種用C#和原生C++摻在一塊做牛丸的混合編程，
 
-其中最直接相關庫的就是 System.Runtime.InteropServices。
+其中最直接相關庫的就是 `System.Runtime.InteropServices`
 
 這東西搞起來非常的麻煩，不僅要知道native c++的api形式，
 
@@ -90,15 +90,20 @@ AllocHGlobal,FreeHGlobal,SizeOf
 ## 最後設計的部分
 
 許多c++的函式都用一個整數代表功能的體現，
+
 在C#中我們可以來為這些功能(flag)寫成一個enum，加些註解，
-或者把一些資料包裝成一個class，再加上一些而外的功能，
-能使得在使用unmanaged code能更加舒服一些。
+
+或者把一些資料包裝成一個class，再加上一些額外的功能，
+
+使得在調用這些unmanaged code能更加舒服一些。
 
 ## 更多的範例
 https://github.com/lightyen/COMInterop
 
 ## 更多的關鍵字
-Interop, DllImport, Marshal, IntPtr, UnmanagedType, StructLayout
+pinvoke, Interop, DllImport, Marshal,
+
+IntPtr, UnmanagedType, StructLayout, MarshalAs
 
 
 
