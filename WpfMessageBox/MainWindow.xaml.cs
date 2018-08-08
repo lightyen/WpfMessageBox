@@ -23,7 +23,7 @@ namespace WpfMessageBox {
         }
 
         private void Button_Click(object sender, RoutedEventArgs e) {
-            var result = NativeAPI.MessageBox(IntPtr.Zero, "hello world", "Test", MessageBoxFlag.YesNo | MessageBoxFlag.IconImformation);
+            var result = NativeAPI.MessageBox(IntPtr.Zero, "hello world 你好", "Test 測試", MessageBoxFlag.YesNo | MessageBoxFlag.IconImformation);
 
             switch (result) {
                 case MessageBoxReturn.Yes:
